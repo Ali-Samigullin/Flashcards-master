@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Flashcards Master</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<header id="main-header">
+		<div class="container">
+			<h1>Flashcards Master</h1>
+		</div>
+	</header>
+	
+	<nav id="navbar">
+		<div class="container">
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Services</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+		</div>
+	</nav>
+	
+	<section id="showcase">
+		<div class="container">
+			<h1 id="card">What is HTML?</h1>
+		</div>
+		<input id="know-button" class="button" type="button" value="I know">
+		<input id="dontknow-button" class="button" type="button" value="I don't know">
+	</section>
+	
+	<div class="container">
+		<section id="main">
+			<h1>About HTML</h1>
+			<p>HTML is the language used to create webpages. It defines the structure of the webpage content.</p>
+		</section>
+
+		<aside id="sidebar">
+			<p>HTML uses tags to mark up text and images, creating a structured document that browsers can render.</p>
+		</aside>
+	</div>
+
+	<footer id="main-footer">
+		<p>Copyright &copy; 2025 My website</p>
+	</footer>
+
+	<script>
+		const questions = [
+			{
+				question: "What is HTML?",
+				answer: "HTML is a markup language used to create webpages and web applications."
+			},
+			{
+				question: "What is CSS?",
+				answer: "CSS is a language used to style the appearance of content written in HTML."
+			},
+			{
+				question: "What is JavaScript?",
+				answer: "JavaScript is a programming language that allows you to add interactivity to websites."
+			}
+		];
+
+		let currentIndex = 0;
+		const card = document.getElementById('card');
+		const knowButton = document.getElementById('know-button');
+		const dontKnowButton = document.getElementById('dontknow-button');
+
+		
+		const updateCard = () => {
+			card.innerText = questions[currentIndex].question;
+		};
+
+		
+		knowButton.addEventListener('click', () => {
+			card.innerText = questions[currentIndex].answer;
+		});
+			dontKnowButton.addEventListener('click', () => {
+			currentIndex = (currentIndex + 1) % questions.length; 
+			updateCard();
+		});
+		updateCard();
+	</script>
+</body>
+</html>
